@@ -3,7 +3,7 @@ import {Box} from 'native-base';
 import {Text} from 'react-native-svg';
 const Header = () => {
   return (
-    <Box>
+    <Box width="100%" height="1/2">
       <Text>hello</Text>
     </Box>
   );
