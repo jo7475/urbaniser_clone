@@ -15,7 +15,11 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import CollectionList from '../components/collectionListItem';
 import {FlatList} from 'react-native';
-import {useIsPressed} from 'native-base/lib/typescript/components/primitives/Pressable/Pressable';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import CollectionItemDetail from './collectionItemDetail';
+import CollectionDetail from './collectionDetail';
+import {PlusHover} from '../components/plusIconHover';
 
 const Collection: FC = () => {
   const [toggle, SetToggle] = useState<boolean>(false);
@@ -44,7 +48,14 @@ const Collection: FC = () => {
           height="20"
           alignItems="center"
           justifyContent="space-between"
-          paddingX="4">
+          paddingX="4"
+          style={{
+            elevation: 3,
+            shadowColor: 'red',
+            shadowOpacity: 1,
+            shadowRadius: 30,
+            shadowOffset: {width: 2, height: 2},
+          }}>
           <Pressable onPress={ToggleSearch}>
             <MaterialIcons
               name={toggle ? 'keyboard-backspace' : 'search'}
@@ -87,13 +98,7 @@ const Collection: FC = () => {
           ListFooterComponent={<Box style={{width: 60}}></Box>}
           renderItem={({item}) => <CollectionList />}
         />
-        <Fab
-          size="xs"
-          position="absolute"
-          bottom="81"
-          style={{backgroundColor: 'orange'}}
-          icon={<AntIcon name="plus" size={30} color="white" />}
-        />
+        <PlusHover />
       </Box>
     </Box>
   );

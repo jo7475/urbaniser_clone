@@ -1,5 +1,6 @@
 package com.urbaniserclone;
 
+
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
@@ -31,7 +32,8 @@ public class MainApplication extends Application implements ReactApplication {
           // packages.add(new MyReactNativePackage());
           return packages;
         }
-
+        
+       
         @Override
         protected String getJSMainModuleName() {
           return "index";

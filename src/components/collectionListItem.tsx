@@ -12,8 +12,13 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FeatherIcons from 'react-native-vector-icons/Feather';
 import Iconicons from 'react-native-vector-icons/Ionicons';
 import MCIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {StackProp} from '../Routes/collectionRoute';
 
 const CollectionList: FC = () => {
+  const navigation =
+    useNavigation<StackNavigationProp<StackProp, 'CollectionItemDetail'>>();
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
   const {isOpen, onOpen, onClose} = useDisclose();
@@ -23,7 +28,10 @@ const CollectionList: FC = () => {
       width={windowWidth * 0.75}
       height={windowHeight * 0.73}
       marginTop={5}
-      marginLeft={3}>
+      marginLeft={3}
+      onPress={() => {
+        navigation.navigate('CollectionItemDetail');
+      }}>
       <ImageBackground
         source={{
           uri: 'https://images.unsplash.com/photo-1553532434-5ab5b6b84993?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29sb3IlMjBwYXR0ZXJufGVufDB8fDB8fA%3D%3D&w=1000&q=80',

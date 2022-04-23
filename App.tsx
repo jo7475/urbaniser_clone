@@ -20,6 +20,7 @@ import Iconicons from 'react-native-vector-icons/Ionicons';
 import Foundation from 'react-native-vector-icons/Foundation';
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import CollectionRoute from './src/Routes/collectionRoute';
 
 const Tab = createBottomTabNavigator();
 
@@ -42,21 +43,25 @@ const App = () => {
           <Tab.Screen
             name="COLLECTIONS"
             options={{
-              tabBarIcon: focused => (
+              tabBarIcon: tabInfo => (
                 <Foundation
                   name="page-multiple"
                   size={25}
-                  style={{color: focused ? 'orange' : '#3F8B99'}}
+                  color={tabInfo.focused ? 'orange' : 'gray'}
                 />
               ),
             }}
-            component={Collection}
+            component={CollectionRoute}
           />
           <Tab.Screen
             name="WHATS ON"
             options={{
-              tabBarIcon: focused => (
-                <MCIcon name="calendar-month-outline" size={25} />
+              tabBarIcon: tabInfo => (
+                <MCIcon
+                  name="calendar-month-outline"
+                  color={tabInfo.focused ? 'orange' : 'gray'}
+                  size={25}
+                />
               ),
             }}
             component={Profile}
@@ -64,8 +69,12 @@ const App = () => {
           <Tab.Screen
             name="RECOMENDED"
             options={{
-              tabBarIcon: focused => (
-                <Iconicons name="chatbox-ellipses-outline" size={25} />
+              tabBarIcon: tabInfo => (
+                <Iconicons
+                  name="chatbox-ellipses-outline"
+                  color={tabInfo.focused ? 'orange' : 'gray'}
+                  size={25}
+                />
               ),
             }}
             component={Profile}
