@@ -42,7 +42,13 @@ const App = () => {
           <Tab.Screen
             name="COLLECTIONS"
             options={{
-              tabBarIcon: () => <Foundation name="page-multiple" size={25} />,
+              tabBarIcon: focused => (
+                <Foundation
+                  name="page-multiple"
+                  size={25}
+                  style={{color: focused ? 'orange' : '#3F8B99'}}
+                />
+              ),
             }}
             component={Collection}
           />

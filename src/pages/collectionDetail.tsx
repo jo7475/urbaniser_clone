@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {Box} from 'native-base';
 import {Text} from 'react-native-svg';
-const CollectionDetail = () => {
+const CollectionDetail: FC = () => {
   return (
     <Box>
       <Text>hello</Text>
