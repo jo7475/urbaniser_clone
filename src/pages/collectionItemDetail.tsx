@@ -6,9 +6,21 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {PlacesCardBox} from '../components/placesCardBox';
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import SimpleIcon from 'react-native-vector-icons/SimpleLineIcons';
+import {PlacesCardList} from '../components/placesCardList';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import Breakfast from '../components/materialTabs/breakfast';
+import All from '../components/materialTabs/all';
 
+const Tab = createMaterialTopTabNavigator();
 const CollectionItemDetail: FC = ({navigation}) => {
   const [toggle, SetToggle] = useState<string>('grid');
+  const listType = () => {
+    if (toggle == 'grid') {
+      return <PlacesCardBox />;
+    } else if (toggle == 'list') {
+      return <PlacesCardList />;
+    }
+  };
 
   return (
     <Box flex={1}>
@@ -35,12 +47,16 @@ const CollectionItemDetail: FC = ({navigation}) => {
           </Pressable>
         </HStack>
 
-        <Text fontSize="lg" fontWeight="black">
+        <Text fontSize="lg" fontWeight="medium">
           Manchester
         </Text>
         <AntIcon name="sharealt" size={20} color="black" />
       </HStack>
       <Box flex={1}>
+        <Tab.Navigator>
+          <Tab.Screen name="All" component={All} />
+          <Tab.Screen name="Breakfast" component={Breakfast} />
+        </Tab.Navigator>
         <HStack width="100%" justifyContent="center">
           <Pressable
             padding={2}
@@ -76,7 +92,7 @@ const CollectionItemDetail: FC = ({navigation}) => {
             />
           </Pressable>
         </HStack>
-        <PlacesCardBox />
+        {listType()}
       </Box>
       <PlusHover />
     </Box>

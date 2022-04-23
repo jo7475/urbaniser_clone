@@ -24,10 +24,10 @@ export const PlacesCardBox: FC = () => {
 
   return (
     <Pressable
-      width={windowWidth * 0.45}
+      width={windowWidth * 0.48}
       style={{aspectRatio: 1 / 1}}
       marginTop={5}
-      marginLeft={3}
+      marginLeft={1}
       onPress={() => {
         navigation.navigate('CollectionItemDetail');
       }}>
