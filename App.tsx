@@ -21,6 +21,8 @@ import Foundation from 'react-native-vector-icons/Foundation';
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import CollectionRoute from './src/Routes/collectionRoute';
+import {Whatson} from './src/pages/whatson';
+import {Recomendation} from './src/pages/recomendation';
 
 const Tab = createBottomTabNavigator();
 
@@ -64,7 +66,7 @@ const App = () => {
                 />
               ),
             }}
-            component={Profile}
+            component={Whatson}
           />
           <Tab.Screen
             name="RECOMENDED"
@@ -77,7 +79,7 @@ const App = () => {
                 />
               ),
             }}
-            component={Profile}
+            component={Recomendation}
           />
           <Tab.Screen
             options={{

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "177159096433",
+    "project_id": "urbaniserclone",
+    "storage_bucket": "urbaniserclone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177159096433:android:1946b93e9144f241a3b3d0",
+        "android_client_info": {
+          "package_name": "com.urbaniserclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177159096433-g6umj0hhf2qincsuf71bkhg4vh1ngvlk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSnPKewhu3K-CQcaIlGsdwY0glSZwH7ro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177159096433-g6umj0hhf2qincsuf71bkhg4vh1ngvlk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

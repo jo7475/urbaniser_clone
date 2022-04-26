@@ -15,8 +15,16 @@ import MCIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {StackProp} from '../Routes/collectionRoute';
+interface data {
+  id: string;
+  city: string;
+  photo: any;
+}
+interface dataArray {
+  data: data;
+}
 
-const CollectionList: FC = () => {
+const CollectionList: FC<dataArray> = props => {
   const navigation =
     useNavigation<StackNavigationProp<StackProp, 'CollectionItemDetail'>>();
   const windowWidth = Dimensions.get('window').width;
@@ -33,13 +41,11 @@ const CollectionList: FC = () => {
         navigation.navigate('CollectionItemDetail');
       }}>
       <ImageBackground
-        source={{
-          uri: 'https://images.unsplash.com/photo-1553532434-5ab5b6b84993?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29sb3IlMjBwYXR0ZXJufGVufDB8fDB8fA%3D%3D&w=1000&q=80',
-        }}
+        source={props.data.photo}
         resizeMode="cover"
         style={{flex: 1, width: '100%', height: '100%'}}>
         <Text color="white" fontSize={20} marginTop={10} marginLeft={6}>
-          Addis Ababa
+          {props.data.city}
         </Text>
         <Pressable
           alignSelf="flex-end"

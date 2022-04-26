@@ -27,9 +27,12 @@ export const PlacesCardList: FC = () => {
   return (
     <Pressable
       width="98%"
-      borderWidth={1}
       style={{
+        overflow: 'hidden',
         aspectRatio: 2.8 / 1,
+        shadowColor: 'black',
+        shadowOpacity: 1,
+        elevation: 2,
       }}
       marginTop={5}
       alignSelf="center"
@@ -50,6 +53,7 @@ export const PlacesCardList: FC = () => {
           <Text
             color="black"
             fontSize={15}
+            fontFamily="monospace"
             alignSelf="flex-end"
             marginTop="auto"
             style={{textAlign: 'right'}}

@@ -8,20 +8,11 @@ import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import SimpleIcon from 'react-native-vector-icons/SimpleLineIcons';
 import {PlacesCardList} from '../components/placesCardList';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import Breakfast from '../components/materialTabs/breakfast';
-import All from '../components/materialTabs/all';
+import Breakfast, {Wellness} from '../components/filters';
+import All from '../components/filters';
 
 const Tab = createMaterialTopTabNavigator();
 const CollectionItemDetail: FC = ({navigation}) => {
-  const [toggle, SetToggle] = useState<string>('grid');
-  const listType = () => {
-    if (toggle == 'grid') {
-      return <PlacesCardBox />;
-    } else if (toggle == 'list') {
-      return <PlacesCardList />;
-    }
-  };
-
   return (
     <Box flex={1}>
       <HStack
@@ -47,54 +38,38 @@ const CollectionItemDetail: FC = ({navigation}) => {
           </Pressable>
         </HStack>
 
-        <Text fontSize="lg" fontWeight="medium">
+        <Text fontSize="lg" fontFamily="monospace" fontWeight="medium">
           Manchester
         </Text>
         <AntIcon name="sharealt" size={20} color="black" />
       </HStack>
       <Box flex={1}>
-        <Tab.Navigator>
+        <Tab.Navigator
+          screenOptions={{
+            tabBarLabelStyle: {fontFamily: 'monospace'},
+            tabBarActiveTintColor: 'orange',
+            tabBarInactiveTintColor: 'black',
+            tabBarIndicatorStyle: {backgroundColor: 'orange'},
+          }}>
           <Tab.Screen name="All" component={All} />
           <Tab.Screen name="Breakfast" component={Breakfast} />
+          <Tab.Screen name="Wellness" component={Wellness} />
         </Tab.Navigator>
-        <HStack width="100%" justifyContent="center">
-          <Pressable
-            padding={2}
-            onPress={() => {
-              SetToggle('grid');
-            }}>
-            <SimpleIcon
-              name="grid"
-              size={20}
-              color={toggle == 'grid' ? 'orange' : 'black'}
-            />
-          </Pressable>
-          <Pressable
-            padding={2}
-            onPress={() => {
-              SetToggle('list');
-            }}>
-            <SimpleIcon
-              name="list"
-              size={20}
-              color={toggle == 'list' ? 'orange' : 'black'}
-            />
-          </Pressable>
-          <Pressable
-            padding={2}
-            onPress={() => {
-              SetToggle('map');
-            }}>
-            <SimpleIcon
-              name="map"
-              size={20}
-              color={toggle == 'map' ? 'orange' : 'black'}
-            />
-          </Pressable>
-        </HStack>
-        {listType()}
+        <Pressable
+          position="absolute"
+          borderRadius="full"
+          style={{
+            backgroundColor: 'orange',
+            padding: 15,
+            alignSelf: 'flex-end',
+            bottom: 34,
+            right: 20,
+            elevation: 1,
+            shadowColor: 'black',
+          }}>
+          <AntIcon name="plus" size={30} color="white" />
+        </Pressable>
       </Box>
-      <PlusHover />
     </Box>
   );
 };

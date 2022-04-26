@@ -65,9 +65,10 @@ const ProfileList: FC = () => {
               size={50}
             />
             <Text
-              fontSize="md"
+              fontSize="lg"
               marginLeft="5"
-              style={{alignSelf: 'flex-end', color: 'gray'}}>
+              fontWeight="thin"
+              style={{alignSelf: 'flex-end', color: 'black'}}>
               Home Location-
             </Text>
           </HStack>
@@ -80,7 +81,7 @@ const ProfileList: FC = () => {
             paddingTop={4}
             paddingBottom={2}
             marginTop={2}>
-            <Icon as={item.icon} size={30} />
+            <Icon as={item.icon} size={25} color="black" />
 
             <Text fontSize="lg" marginLeft="7" style={{alignSelf: 'flex-end'}}>
               {item.name}

@@ -40,6 +40,7 @@ export const PlacesCardBox: FC = () => {
         <Text
           color="white"
           fontSize={15}
+          fontFamily="monospace"
           alignSelf="flex-end"
           marginTop="auto"
           style={{textAlign: 'right'}}

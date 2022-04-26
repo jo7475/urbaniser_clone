@@ -27,8 +27,8 @@ const Profile: FC = ({navigation}) => {
           }}>
           <MaterialIcons name="keyboard-backspace" size={30} color="black" />
         </Pressable>
-        <Text fontSize="lg" fontWeight="black">
-          Profile
+        <Text fontSize="md" fontFamily="monospace" fontWeight="black">
+          Account
         </Text>
         <AntIcon name="sharealt" size={20} color="black" />
       </HStack>
